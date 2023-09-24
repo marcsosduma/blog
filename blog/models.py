@@ -145,6 +145,8 @@ class Post(models.Model):
     )
     tags = models.ManyToManyField(Tag, blank=True, default='')
 
+    url = models.CharField(max_length=256)   
+
     def get_absolute_url(self):
         if not self.is_published:
             return reverse('blog:index')

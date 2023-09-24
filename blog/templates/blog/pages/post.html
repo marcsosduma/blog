@@ -62,6 +62,8 @@
       <div class="single-post-content">
         {{ post.content | safe }}
 
+        <iframe width="800" height="600" src="{{ post.url | safe }}" frameborder="0" allowFullScreen="true"></iframe>
+
         {% if post.tags.all.exists %}
         <div class="post-tags">
           <span>Tags: </span>
