@@ -1,0 +1,1 @@
+docker-compose run --rm djangoapp %1 %2 %3 %4
