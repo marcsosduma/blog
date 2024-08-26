@@ -1,4 +1,4 @@
-version: '3.9'
+version: '3'
 
 services:
   djangoapp:
@@ -6,7 +6,7 @@ services:
     build:
       context: .
     ports:
-      - 8000:8000
+      - "8000:8000"
     volumes:
       - ./djangoapp:/djangoapp
       - ./data/web/static:/data/web/static/
@@ -15,6 +15,9 @@ services:
       - ./dotenv_files/.env
     depends_on:
       - psql
+    networks:
+      - blog_network
+
   psql:
     container_name: psql
     image: postgres:13-alpine
@@ -22,10 +25,19 @@ services:
       - ./data/postgres/data:/var/lib/postgresql/data/
     env_file:
       - ./dotenv_files/.env
+    networks:
+      - blog_network
+      
+networks:
+  blog_network:
+    driver: bridge
+    external: true
+
   #pgadmin:
   #  image: dpage/pgadmin4
   #  environment:
   #    - PGADMIN_DEFAULT_EMAIL=psql@gmail.com
+
   #    - PGADMIN_DEFAULT_PASSWORD=psql
   #  ports:
   #    - "'8080':80"
