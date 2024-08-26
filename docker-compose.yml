@@ -22,3 +22,13 @@ services:
       - ./data/postgres/data:/var/lib/postgresql/data/
     env_file:
       - ./dotenv_files/.env
+  #pgadmin:
+  #  image: dpage/pgadmin4
+  #  environment:
+  #    - PGADMIN_DEFAULT_EMAIL=psql@gmail.com
+  #    - PGADMIN_DEFAULT_PASSWORD=psql
+  #  ports:
+  #    - "'8080':80"
+  #  depends_on:
+  #    - psql
+
