@@ -28,6 +28,7 @@ services:
     networks:
       - blog_network
       
+#podman network create --subnet 192.168.200.0/24 blog_network
 networks:
   blog_network:
     driver: bridge
