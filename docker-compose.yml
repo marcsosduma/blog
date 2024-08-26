@@ -32,7 +32,7 @@ services:
 networks:
   blog_network:
     driver: bridge
-    external: true
+#    external: true
 
   #pgadmin:
   #  image: dpage/pgadmin4
